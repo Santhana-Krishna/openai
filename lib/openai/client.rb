@@ -88,7 +88,7 @@ module OpenAI
     end
 
     private def get(path)
-      uri = URI.parse("https://api.openai.com#{path}")
+      uri = URI.parse("https://ce-canadaeast-ai-stage01.openai.azure.com/#{path}")
       req = Net::HTTP::Get.new(uri)
       headers.each do |name, value|
         req[name] = value
@@ -100,7 +100,7 @@ module OpenAI
     end
 
     private def post(path, body: nil)
-      uri = URI.parse("https://api.openai.com#{path}")
+      uri = URI.parse("https://ce-canadaeast-ai-stage01.openai.azure.com#{path}")
       req = Net::HTTP::Post.new(uri)
       req.body = body.to_json
       headers.each do |name, value|
